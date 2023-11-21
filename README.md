@@ -1,6 +1,6 @@
-# Multiform with React
+# Azuton - Chats
 
-This project was made in React during a challenge called "5 Projetos em 5 Dias" by [B7Web](https://b7web.com.br)
+Hotsite criado para gerar propostas para o azuton chats, de maneira dinâmica e interativa. Nele o Cliente poderá ter uma proposta sob demanda e personalizada ao seu perfil de uso
 
 ## First Steps
 
