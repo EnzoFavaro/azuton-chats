@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import * as C from './styles';
-import { ReactComponent as ProfileIcon } from '../../svgs/profile.svg';
-import { ReactComponent as BookIcon } from '../../svgs/book.svg';
-import { ReactComponent as MailIcon } from '../../svgs/mail.svg';
+import { ReactComponent as CompanyIcon } from '../../svgs/company.svg';
+import { ReactComponent as UserIcon } from '../../svgs/users.svg';
+import { ReactComponent as WhatsappIcon } from '../../svgs/whatsapp.svg';
+import { ReactComponent as ModulesIcon } from '../../svgs/modules.svg';
+import { ReactComponent as FlagIcon } from '../../svgs/flag.svg';
 
 type Props = {
     title: string;
@@ -21,14 +23,20 @@ export const SidebarItem = ({ title, description, icon, path, active }: Props) =
                     <C.Description>{description}</C.Description>
                 </C.Info>
                 <C.IconArea active={active}>
-                    {icon === 'profile' &&
-                        <ProfileIcon fill="white" width={24} height={24} />
+                    {icon === 'whatsapp' &&
+                        <WhatsappIcon fill="white" width={30} height={30} />
                     }
-                    {icon === 'book' &&
-                        <BookIcon fill="white" width={24} height={24} />
+                    {icon === 'company' &&
+                        <CompanyIcon  width={32} height={32} />
                     }
-                    {icon === 'mail' &&
-                        <MailIcon fill="white" width={24} height={24} />
+                    {icon === 'user' &&
+                        <UserIcon  width={32} height={32} />
+                    }
+                    {icon === 'modules' &&
+                        <ModulesIcon  width={32} height={32} />
+                    }
+                    {icon === 'final' &&
+                        <FlagIcon  width={30} height={30} />
                     }
                 </C.IconArea>
                 <C.Point active={active}></C.Point>

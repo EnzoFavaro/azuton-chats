@@ -8,42 +8,77 @@ export const Container = styled.div`
     h1 {
         margin: 0;
         padding: 0;
-        font-size: 26px;
+        font-size: 29px;
     }
-    hr {
+    hr{
         height: 1px;
         border: 0;
-        background-color: #16195C;
-        margin: 30px 0;
+        background-color:#2d3436;
+        margin: 40px 0;
     }
 
-    label {
-        font-size: 13px;
+    div{
+        border: 5px solid #0984e3;
+        border-radius: 15px;
+        padding: 20px 20px;
+        background-color:#0984e3; 
 
-        input {
+    }
+
+
+    label{
+        font-size: 19px;
+        font-weight: bold;
+        color: #fff;
+        input{
             display: block;
-            margin-top: 7px;
+            margin-top:11px;
             box-sizing: border-box;
             width: 100%;
-            padding: 20px 10px;
-            border: 2px solid #25CD89;
+            border: 0;
             border-radius: 10px;
-            color: #FFF;
-            outline: 0;
+            outline: 2px solid #2d3436;
+            height: 50px;
             font-size: 15px;
-            background-color: #02044A;
+            background-color: #FFF;
+            outline-offset: 3px;
+            padding: 10px 1rem;
+            transition: 0.25s;
+
+        }
+        input:focus{
+            outline-offset: 5px;
+            background-color: #fff
         }
     }
 
-    button {
-        background-color: #25CD89;
-        color: #FFF;
-        font-size: 14px;
-        font-weight: bold;
-        padding: 20px 40px;
-        border: 0;
-        border-radius: 30px;
-        cursor: pointer;
-        margin-top: 30px;
+    button{
+    background: #0984e3;
+    color: white;
+    font-family: inherit;
+    padding-left: 1.0em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    width:170px;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    height: 2.8em;
+    padding-right: 20px;
+    margin-top: 30px;
+    cursor: pointer;
     }
+      
+    button:hover {
+        transform: translate(-0.05em, -0.05em);
+        box-shadow: 0.15em 0.15em #5566c2;
+    }
+      
+    button:active {
+        transform: translate(0.05em, 0.05em);
+        box-shadow: 0.05em 0.05em #5566c2;
+    }
+
 `;

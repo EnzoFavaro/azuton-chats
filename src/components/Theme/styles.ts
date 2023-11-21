@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
+
 export const Container = styled.div`
-    background-color: #02044A;
-    color: #FFF;
+    background-color: #FFFFFF;
+    color: #00000;
     min-height: 100vh;
+    
 `;
 
 export const Area = styled.div`
     margin: auto;
-    max-width: 980px;
+    margin-left: 5%;
+    margin-right: 10%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,7 +24,7 @@ export const Steps = styled.div`
 
 export const Sidebar = styled.div`
     width: 250px;
-    border-right: 1px solid #16195C;
+    border-right: 1px solid #2d3436;
 `;
 
 export const Page = styled.div`

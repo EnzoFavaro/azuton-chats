@@ -26,15 +26,17 @@ export const Title = styled.div`
 
 export const Description = styled.div`
     text-align: right;
-    font-size: 13px;
+    font-size: 16px;
     color: #B8B8D4;
+    padding-bottom: 25px;
 `;
 
 export const IconArea = styled.div<{ active: boolean; }>`
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: ${props => props.active ? '#25CD89' : '#494A7C'};
+    border: 2px solid #0984e3;
+    background-color: ${props => props.active ? '#0984e3' : '#FFF'};
     display: flex;
     justify-content: center;
     align-items: center;

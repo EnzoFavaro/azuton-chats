@@ -1,10 +1,15 @@
 import * as C from './styles';
+import LogoAzuton from './azuton-logo.png'
+
 
 export const Header = () => {
-    return (
+    return(
         <C.Container>
-            <h1>Cadastro de Desenvolvedor</h1>
-            <p>Faça seu cadastro na lista e receba um emprego instantaneamente.</p>
+            <img style={{width:290, height: 90}} src={LogoAzuton} alt="logo-azuton" />
+            <div>
+                <h1 style={{ fontFamily: 'Roboto, sans-serif' }}>Preencha os dados de sua empresa</h1>
+                <span style={{ fontFamily: 'Roboto, sans-serif' }}>receba a sua proposta personalizada e sob demanda</span>
+            </div>
         </C.Container>
-    );
+    )
 }

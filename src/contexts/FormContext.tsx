@@ -2,12 +2,21 @@
 import { createContext, ReactNode, useContext, useReducer } from 'react';
 
 type State = {
-    currentStep: number;
-    name: string;
-    level: 0 | 1;
-    email: string;
-    github: string;
-}
+    currentStep: number,
+    whatsapp: string,
+    fullName: string,
+    company: string,
+    cnpj: string,
+    email: string,
+    numberUsers: number,
+    numberChanels: number,
+    campanhas: boolean,
+    chatbot: boolean,
+    internChat: boolean,
+    api: boolean,
+};
+
+
 type Action = {
     type: FormActions;
     payload: any;
@@ -22,10 +31,18 @@ type FormProviderProps = {
 
 const initialData: State = {
     currentStep: 0,
-    name: '',
-    level: 0,
+    whatsapp: '',
+    fullName: '',
+    company: '',
+    cnpj: '',
     email: '',
-    github: ''
+    numberUsers: 5,
+    numberChanels: 1,
+    chatbot: false,
+    campanhas: false,
+    internChat: false,
+    api: false,
+
 }
 
 // Context
@@ -34,23 +51,46 @@ const FormContext = createContext<ContextType | undefined>(undefined);
 // Reducer
 export enum FormActions {
     setCurrentStep,
-    setName,
-    setLevel,
+    setWhatsapp,
+    setFullName,
+    setCompany,
+    setCNPJ,
     setEmail,
-    setGithub
+    setNumberUsers,
+    setNumberChanels,
+    setChatbot,
+    setCampanhas,
+    setInternChat,
+    setApi,
 }
-const formReducer = (state: State, action: Action) => {
-    switch(action.type) {
+
+
+const formReducer = (state: State, action: Action) =>{
+    switch(action.type){
         case FormActions.setCurrentStep:
             return {...state, currentStep: action.payload};
-        case FormActions.setName:
-            return {...state, name: action.payload};
-        case FormActions.setLevel:
-            return {...state, level: action.payload};
+        case FormActions.setWhatsapp:
+            return {...state, whatsapp: action.payload};
+        case FormActions.setFullName:
+            return {...state, fullName: action.payload};
+        case FormActions.setCompany:
+            return {...state, company: action.payload};
+        case FormActions.setCNPJ:
+            return {...state, cnpj: action.payload};
         case FormActions.setEmail:
             return {...state, email: action.payload};
-        case FormActions.setGithub:
-            return {...state, github: action.payload};
+        case FormActions.setNumberUsers:
+            return {...state, numberUsers: action.payload};
+        case FormActions.setNumberChanels:
+            return {...state, numberChanels: action.payload};
+        case FormActions.setChatbot:
+            return {...state, chatbot: action.payload};
+        case FormActions.setCampanhas:
+            return {...state, campanhas: action.payload};
+        case FormActions.setInternChat:
+            return {...state, internChat: action.payload};
+        case FormActions.setApi:
+            return {...state, api: action.payload};
         default:
             return state;
     }

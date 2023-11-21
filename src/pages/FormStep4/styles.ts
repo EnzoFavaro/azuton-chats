@@ -1,12 +1,13 @@
 import styled from "styled-components";
-
 export const Container = styled.div`
+
 
 section{
     display:flex;
     flex-direction: row;
     justify-content: center;
-}
+    flex-wrap:wrap ;
+    }
 
 p {
     font-size: 13px;
@@ -30,11 +31,12 @@ div{
     background-color:#FFFF;
     padding: 20px 70px 20px;
     max-width: 350px;
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
     img{
         width: 350px;
-        height: 300px;
+        max-height: 210px;
 
     }
     p{
@@ -43,7 +45,6 @@ div{
     }
 
 }
-
 
 
 label{
@@ -73,40 +74,38 @@ label{
 }
 
 button{
-background: #0984e3;
-color: white;
-font-family: inherit;
-padding-left: 1.0em;
-font-size: 17px;
-font-weight: 500;
-border-radius: 0.9em;
-border: none;
-letter-spacing: 0.05em;
-width:170px;
-box-shadow: inset 0 0 1.6em -0.6em #714da6;
-overflow: hidden;
-height: 2.8em;
-padding-right: 20px;
-margin-top: 30px;
-cursor: pointer;
-}
-  
-button:hover {
-    transform: translate(-0.05em, -0.05em);
-    box-shadow: 0.15em 0.15em #5566c2;
-}
-  
-button:active {
-    transform: translate(0.05em, 0.05em);
-    box-shadow: 0.05em 0.05em #5566c2;
-}
+    background: #0984e3;
+    color: white;
+    font-family: inherit;
+    padding-left: 1.0em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    width:170px;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    height: 2.8em;
+    padding-right: 20px;
+    margin-top: 30px;
+    cursor: pointer;
+    }
+      
+    button:hover {
+        transform: translate(-0.05em, -0.05em);
+        box-shadow: 0.15em 0.15em #5566c2;
+    }
+      
+    button:active {
+        transform: translate(0.05em, 0.05em);
+        box-shadow: 0.05em 0.05em #5566c2;
+    }
 
-.backButton {
-    font-size: 16px;
-    text-decoration: none;
-    padding: 20px 40px;
-    color: #B8B8D4;
-}
-
-
+    .backButton {
+        font-size: 16px;
+        text-decoration: none;
+        padding: 20px 40px;
+        color: #B8B8D4;
+    }
 `;

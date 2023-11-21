@@ -21,26 +21,41 @@ export const Theme = ({ children }: Props) => {
                         
                         <SidebarItem
                             title="Pessoal"
-                            description="Se identifique"
-                            icon="profile"
+                            description="Whatsapp"
+                            icon="whatsapp"
                             path="/"
                             active={state.currentStep === 1}
                         />
 
                         <SidebarItem
-                            title="Profissional"
-                            description="Seu nível"
-                            icon="book"
+                            title="Empresa"
+                            description="Empresa"
+                            icon="company"
                             path="/step2"
                             active={state.currentStep === 2}
                         />
 
                         <SidebarItem
-                            title="Contatos"
-                            description="Como te achar"
-                            icon="mail"
+                            title="Usuários"
+                            description="Usuários"
+                            icon="user"
                             path="/step3"
                             active={state.currentStep === 3}
+                        />
+
+                        <SidebarItem
+                            title="Módulos"
+                            description="Módulos"
+                            icon="modules"
+                            path="/step4"
+                            active={state.currentStep === 4}
+                        />
+                        <SidebarItem
+                            title="Final"
+                            description="Final"
+                            icon="final"
+                            path="/step5"
+                            active={state.currentStep === 5}
                         />
                         
                     </C.Sidebar>

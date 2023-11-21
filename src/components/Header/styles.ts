@@ -2,15 +2,24 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     padding: 25px 0;
-    border-bottom: 1px solid #16195C;
-
-    h1 {
+    border-bottom: 1px solid #2d3436;
+    display: flex;
+    flex-direction: row;
+    
+    h1{
         margin: 0;
         padding: 0;
-        font-size: 28px;
+        font-size: 40px;
+        font-weight: 750;
     }
-    p {
-        font-size: 14px;
-        color: #B8B8D4;
+    span{
+        font-size: 18px;
+        color: #2d3436;
     }
+    div{
+        margin-top:10px;
+        margin-left: 50px;
+        
+    }
+
 `;
