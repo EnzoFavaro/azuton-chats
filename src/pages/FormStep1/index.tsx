@@ -13,6 +13,17 @@ export const FormStep1 = () => {
 
     const inputRef = useMask({ mask: '55 (__) _____-____', replacement: { _: /\d/ } });
 
+    var myHeaders = new Headers();
+    myHeaders.append("access-token", "656cf577991a54728a88e983");
+    myHeaders.append("Content-Type", "application/json");
+    myHeaders.append("Accept", "application/json");
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders
+    };
+   
+    
+
     useEffect(() => {
         dispatch({
             type: FormActions.setCurrentStep,
@@ -20,11 +31,22 @@ export const FormStep1 = () => {
         });
     }, []);
 
-
+    const number = state.whatsapp.replace(/[^\d]/g, '')
     const handleNextStep = () => {
         if(state.fullName !== '' && state.whatsapp !== '') {
             if(state.whatsapp.length == 18){
-                history.push('/step2');
+                fetch("https://api.azutomatize.com.br/core/v2/api/wa-number-check/"+number, requestOptions)
+                .then(response => response.json())
+                .then(response =>{
+                    const resposta = response.status
+                    if(resposta == "INVALID_WA_NUMBER"){
+                        toast.error("Esse número não possui whatsapp", {
+                            position: toast.POSITION.TOP_RIGHT,
+                          });
+                    }else{
+                        history.push('/step2');
+                    }
+                })
             }else{
                 toast.error("Número inválido", {
                     position: toast.POSITION.TOP_RIGHT,
