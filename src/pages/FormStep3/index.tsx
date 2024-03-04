@@ -22,6 +22,13 @@ export const FormStep3 = () => {
                 type: FormActions.setCurrentStep,
                 payload: 3
             });
+            window.dataLayer.push({
+              event: 'event',
+              eventProps: {
+                form: 'step 3',
+                title: 'users'
+              }
+            });
         }
     }, []);
 

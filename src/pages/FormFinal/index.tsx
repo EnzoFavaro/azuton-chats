@@ -131,6 +131,13 @@ export const FormFinal = () => {
                 type: FormActions.setCurrentStep,
                 payload: 5
             });
+            window.dataLayer.push({
+                event: 'event',
+                eventProps: {
+                  form: 'step 5',
+                  title: 'completed'
+                }
+              });
             enviaTexto();
             iniciaAtendimento();
             criaProposta();

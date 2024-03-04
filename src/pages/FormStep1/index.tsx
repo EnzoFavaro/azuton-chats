@@ -7,7 +7,12 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useMask } from '@react-input/mask';
 
+
+
 export const FormStep1 = () => {
+
+
+
     const history = useHistory();
     const { state, dispatch } = useForm();
 
@@ -29,6 +34,13 @@ export const FormStep1 = () => {
             type: FormActions.setCurrentStep,
             payload: 1
         });
+        window.dataLayer.push({
+            event: 'event',
+            eventProps: {
+              form: 'step 1',
+              title: 'contact'
+            }
+          });
     }, []);
 
     const number = state.whatsapp.replace(/[^\d]/g, '')

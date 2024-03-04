@@ -20,6 +20,13 @@ export const FormStep4 = () => {
                 type: FormActions.setCurrentStep,
                 payload: 4
             });
+            window.dataLayer.push({
+                event: 'event',
+                eventProps: {
+                  form: 'step 4',
+                  title: 'modules'
+                }
+              });
         }
     }, []);
 

@@ -8,6 +8,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useMask } from '@react-input/mask';
 
 export const FormStep2 = () => {
+
+
     const history = useHistory();
     const { state, dispatch } = useForm();
 
@@ -21,6 +23,13 @@ export const FormStep2 = () => {
                 type: FormActions.setCurrentStep,
                 payload: 2
             });
+            window.dataLayer.push({
+                event: 'event',
+                eventProps: {
+                  form: 'step 2',
+                  title: 'company'
+                }
+              });
         }
     }, []);
 
