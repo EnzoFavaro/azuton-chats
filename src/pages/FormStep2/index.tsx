@@ -7,6 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useMask } from '@react-input/mask';
 
+
+
 export const FormStep2 = () => {
 
 
@@ -33,9 +35,11 @@ export const FormStep2 = () => {
         }
     }, []);
 
+    
+
     const handleNextStep = () => {
         if(state.cnpj !== '' && state.company !== '' && state.email !== '') {
-            if(state.cnpj.length == 18){
+            if(verifyCNPJ(state.cnpj) == true){
                 if(state.email.includes("@") && state.email.includes(".") ){
                     history.push('/step3');
                 }else{
@@ -101,4 +105,52 @@ export const FormStep2 = () => {
             </C.Container>
         </Theme>
     );
+}
+
+function verifyCNPJ(cnpj: string): boolean {
+    cnpj = cnpj.replace(/[^\d]+/g, ''); // Remove caracteres não numéricos
+
+    if (cnpj.length !== 14) {
+        return false;
+    }
+
+    // Verifica se todos os dígitos são iguais, o que tornaria o CNPJ inválido
+    if (/^(\d)\1+$/.test(cnpj)) {
+        return false;
+    }
+
+    // Calcula o primeiro dígito verificador
+    let tamanho: number = cnpj.length - 2;
+    let numeros: string = cnpj.substring(0, tamanho);
+    let digitos: string = cnpj.substring(tamanho);
+    let soma: number = 0;
+    let pos: number = tamanho - 7;
+    for (let i = tamanho; i >= 1; i--) {
+        soma += +numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2) {
+            pos = 9;
+        }
+    }
+    let resultado: number = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != +digitos.charAt(0)) {
+        return false;
+    }
+
+    // Calcula o segundo dígito verificador
+    tamanho = tamanho + 1;
+    numeros = cnpj.substring(0, tamanho);
+    soma = 0;
+    pos = tamanho - 7;
+    for (let i = tamanho; i >= 1; i--) {
+        soma += +numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2) {
+            pos = 9;
+        }
+    }
+    resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+    if (resultado != +digitos.charAt(1)) {
+        return false;
+    }
+
+    return true; // CNPJ válido
 }

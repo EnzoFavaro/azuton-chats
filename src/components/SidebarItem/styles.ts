@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    margin: 30px 0;
+    margin: 40px 0 ;
     cursor: pointer;
+
 
     a {
         display: flex;

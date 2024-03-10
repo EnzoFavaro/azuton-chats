@@ -3,7 +3,7 @@ import * as C from './styles';
 import { Header } from '../Header';
 import { SidebarItem } from '../SidebarItem';
 import { useForm } from '../../contexts/FormContext';
-
+import MediaQuery from 'react-responsive'
 type Props = {
     children: ReactNode;
 }
@@ -11,12 +11,14 @@ type Props = {
 export const Theme = ({ children }: Props) => {
     const { state } = useForm();
 
+
     return (
         <C.Container>
             <C.Area>
                 <Header />
 
                 <C.Steps>
+                <MediaQuery minWidth={1224}>
                     <C.Sidebar>
                         
                         <SidebarItem
@@ -59,6 +61,7 @@ export const Theme = ({ children }: Props) => {
                         />
                         
                     </C.Sidebar>
+                    </MediaQuery>
                     <C.Page>
                         {children}
                     </C.Page>

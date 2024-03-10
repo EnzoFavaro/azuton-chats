@@ -26,6 +26,7 @@ export const SidebarItem = ({ title, description, icon, path, active }: Props) =
                     {icon === 'whatsapp' &&
                         <WhatsappIcon fill="white" width={30} height={30} />
                     }
+                    
                     {icon === 'company' &&
                         <CompanyIcon  width={32} height={32} />
                     }

@@ -95,30 +95,74 @@ export const FormFinal = () => {
         fetch("https://api.azutomatize.com.br/core/v2/api/chats/create-new", requestOptions)
     }
 
-    function criaProposta(){
+
+    async function criaProposta(): Promise<number | undefined> {
         requestOptions.body = JSON.stringify({
             "name": state.company,
             "visible_to": "3",
             "bead21c0ecaf867ea55f5177a4bbdbadf9a7a27a": state.cnpj
         })
+    
+        try {
+            const responseOrg = await fetch("https://api.pipedrive.com/v1/organizations?api_token=e41271d3d29a39b94e98c0236c891d23e2f37c54", requestOptions);
+            const orgData = await responseOrg.json();
+            
+            const id_org: number | undefined = orgData.data?.id;
+    
+            if (!id_org) {
+                throw new Error('ID da organização não encontrado');
+            }
 
-        fetch("https://api.pipedrive.com/v1/organizations?api_token=e41271d3d29a39b94e98c0236c891d23e2f37c54", requestOptions)
-        .then(response => response.json())
-                .then(response =>{
-                    const id_org = response.data.id
-                    const valor = Math.round(finalPrice).toString();
+            requestOptions.body = JSON.stringify({
+                "name": state.fullName,
+                "org_id": id_org,
+                "email": [
+                    {
+                        "value": state.email
+                    }
+                ],
+                "phone": [
+                    {
+                        "value": state.whatsapp
+                    }
+                ],
+                "visible_to": "3"
+            });
+    
+            
+            const responsePerson = await fetch("https://api.pipedrive.com/v1/persons?api_token=e41271d3d29a39b94e98c0236c891d23e2f37c54", requestOptions);
+            const PersonData = await responsePerson.json();
 
-                    requestOptions.body = JSON.stringify({
-                        "title": "Azuton Chats - "+ state.company,
-                        "value": valor,
-                        "org_id": id_org,
-                        "stage_id": 38,
-                        "status": "open",
-                        "visible_to": "3"
-                    })
-                    fetch("https://api.pipedrive.com/v1/deals?=&api_token=e41271d3d29a39b94e98c0236c891d23e2f37c54", requestOptions)
+            const id_Person: number | undefined = PersonData.data?.id;
+    
+            if (!id_Person) {
+                throw new Error('ID da pessoa não encontrado');
+            }
+            
+            try {
 
-                })
+                const valor: string = Math.round(finalPrice).toString();
+                requestOptions.body = JSON.stringify({
+                    "title": "Azuton Chats - " + state.company,
+                    "value": valor,
+                    "person_id": id_Person,
+                    "org_id": id_org,
+                    "stage_id": 38,
+                    "status": "open",
+                    "visible_to": "3"
+                });
+                
+                const responseDeal = await fetch("https://api.pipedrive.com/v1/deals?=&api_token=e41271d3d29a39b94e98c0236c891d23e2f37c54", requestOptions);
+                
+            }catch (error) {
+                console.error('Ocorreu um erro:', error);
+            throw error;
+            }
+            return id_org;
+        } catch (error) {
+            console.error('Ocorreu um erro:', error);
+            throw error;
+        }
     }
     
     
