@@ -5,8 +5,22 @@ export const Container = styled.div`
 section{
     display:flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-left: 70px;
+    gap: 50px;
+    margin-bottom: 30px;
 }
+
+
+@media (max-width: 650px) {
+section{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left:0px;
+}}
+
+ 
 
 p {
     font-size: 13px;
@@ -21,17 +35,18 @@ hr {
     height: 1px;
     border: 0;
     background-color: #16195C;
-    margin: 30px 0;
+    margin: 40px 0;
+    width: 80%;
 }
 
 div{
-    border: 35px solid #0984e3;
+    border: 15px solid #0984e3;
     border-radius: 15px;
     background-color:#FFFF;
     padding: 20px 70px 20px;
-    max-width: 350px;
-    margin-left: 100px;
-    margin-right: 100px;
+    max-width: 300px;
+    margin-right: 50px;
+
     img{
         width: 350px;
         height: 300px;
@@ -43,7 +58,26 @@ div{
     }
 
 }
-
+@media (max-width: 650px) {
+    div{
+        border: 15px solid #0984e3;
+        border-radius: 15px;
+        background-color:#FFFF;
+        padding: 20px 50px 20px;
+        max-width: 300px;
+        margin-right: 50px;
+        img{
+            width: 200px;
+            height: 100px;
+            
+        }
+        p{
+            margin-top:20px;
+            color: #636e72;
+        }
+    
+    }
+}
 
 
 label{

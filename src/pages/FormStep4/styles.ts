@@ -26,13 +26,12 @@ hr {
 }
 
 div{
-    border: 35px solid #0984e3;
-    border-radius: 15px;
+    border: 20px solid #0984e3;
+    border-radius: 11px;
     background-color:#FFFF;
     padding: 20px 70px 20px;
     max-width: 350px;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-right: 20px;
     margin-top: 50px;
     img{
         width: 350px;

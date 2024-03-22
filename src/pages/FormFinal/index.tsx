@@ -12,6 +12,12 @@ export const FormFinal = () => {
     const userPrice = state.numberUsers *50
     const chanelPrice = state.numberChanels *298
     var finalPrice = userPrice+chanelPrice
+    var chanelPrefix = ""
+    if (state.numberChanels == 1){
+        chanelPrefix = "canal"
+    }else{
+        chanelPrefix = "canais"
+    }
 
     var message = `
     *Orçamento - Azuton Chats*
@@ -25,18 +31,18 @@ export const FormFinal = () => {
     \n
 
     ${state.numberUsers} usuários: R$${userPrice}
-    ${state.numberChanels} canais: R$${chanelPrice}
+    ${state.numberChanels} ${chanelPrefix}: R$${chanelPrice}
     `;
     if(state.chatbot === true){
-        message += "\n    Chatbot: ✅\n"
-        finalPrice = finalPrice + 149.9
+        message += "\n    Chatbot: ✅ (R$149,99)\n"
+        finalPrice = finalPrice + 149.99
     }else{
         message += "\n    Chatbot: ❌\n"
     }
 
 
     if(state.api === true){
-        message += "    API: ✅\n"
+        message += "    API: ✅ (R$70,00)\n"
         finalPrice = finalPrice + 70
     }else{
         message += "    API: ❌\n"
@@ -44,16 +50,16 @@ export const FormFinal = () => {
 
 
     if(state.campanhas === true){
-        message += "    Campanhas: ✅\n"
-        finalPrice = finalPrice + 149.9
+        message += "    Campanhas: ✅ (R$149,99)\n"
+        finalPrice = finalPrice + 149.99
     }else{
         message += "    Campanhas: ❌\n"
     }
 
 
     if(state.internChat === true){
-        message += "    Chat interno: ✅\n"
-        finalPrice = finalPrice + 149.9
+        message += "    Chat interno: ✅ (R$149,99)\n"
+        finalPrice = finalPrice + 149.99
     }else{
         message += "    Chat interno: ❌\n"
     }

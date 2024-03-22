@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Slider from '@mui/material/Slider';
 import image1 from './undraw_engineering_team_a7n2.svg';
 import image2 from './undraw_team_up_re_84ok.svg';
+import MediaQuery from 'react-responsive'
 
 
 export const FormStep3 = () => {
@@ -80,9 +81,14 @@ export const FormStep3 = () => {
             <ToastContainer />
             <C.Container>
                 <p>Etapa 3 </p>
+                <MediaQuery maxWidth={650}>
+                <h1>Legal {state.fullName}, agora me diga<br /> o número  de usuários e canais</h1>
+                <p>Você sempre poderá expandir seu pacote no futuro,<br /> caso precise!</p>
+                </MediaQuery>
+                <MediaQuery minWidth={650}>
                 <h1>Legal {state.fullName}, agora me diga o número de usuários e canais</h1>
                 <p>Você sempre poderá expandir seu pacote no futuro, caso precise!</p>
-
+                </MediaQuery>
                 <hr/>
                 
                 <section>
@@ -145,7 +151,8 @@ export const FormStep3 = () => {
                     <p>Caso você precise mais de 50 usuários, nosso time de especialistas 
                         entrarão em contato para uma proposta mais adequada ao seu cenário.</p>
                 </div>
-
+<br /><br />
+<br /><br />
                 <div>
                     <img src={image2} alt="users-image" />
 
